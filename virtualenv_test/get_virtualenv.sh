@@ -1,4 +1,4 @@
-# CREATE AND ACTIVATE VIRTUAL ENVIRONMENT =============================
+# Get Names for the Environment and Kernels ===========================
 # 1. Get working directory name (without full path).
 dir_name=${PWD##*/}
 
@@ -6,32 +6,35 @@ dir_name=${PWD##*/}
 venv_stem="${dir_name//-/_}"
 
 # 3. Get virtual environment name.
-venv_name="venv_${venv_stem}"
+venv_name=".venv_${venv_stem}"
+py_kernel_name="${venv_stem}_py"
+
+# Create the Virtual Environment ======================================
+# 1. Create the virtual environment.
 echo "===creating virtual environment ${venv_name}==="
+virtualenv -p python3 "${venv_name}"
 
-# 4. Create virtual environment.
-virtualenv -p python3 ".${venv_name}"
+# 2. Activate virtual environment.
+source "${venv_name}/bin/activate"
 
-# 5. Activate virtual environment.
-source ".${venv_name}/bin/activate"
-
-# 6. Upgrade pip.
+# 3. Upgrade pip.
 pip install -U pip
 
-# JUPYTER =============================================================
+# Install Jupyter =====================================================
 pip install jupyter
 
-# KERNELS =============================================================
-# 1. IPython
-python -m ipykernel install --user --name="${venv_stem}_py"
+# Install Kernels =====================================================
+# Install ipython kernel
+echo "===installing iPy kernel ${py_kernel_name}==="
+python -m ipykernel install --user --name="${py_kernel_name}"
 
-# REQUIREMENTS ========================================================
+# Install Rrequirements ===============================================
 touch requirements.txt
 pip install -r requirements.txt
-echo "===virtual environment .${venv_name} created==="
+echo "===virtual environment ${venv_name} created==="
 
-# GIT =================================================================
+# Prevent Git from Tracking the Virtual Environment ===================
 # NB! better add ignore statement to ./.git/info/exclude so that it doesn't clutter .gitignore.
-# 8. If doesn't exist, add virtual environment path to ./.git/info/exclude.
-grep -qxF ".${venv_name}/" ../.git/info/exclude || echo ".${venv_name}/" >> ./.git/info/exclude
-echo "===updated ./.git/info/exclude. with ".${venv_name}/"==="
+# If doesn't exist, add virtual environment path to ./.git/info/exclude.
+grep -qxF "${venv_name}/" ../.git/info/exclude || echo "${venv_name}/" >> ./.git/info/exclude
+echo "===updated ./.git/info/exclude. with "${venv_name}/"==="
