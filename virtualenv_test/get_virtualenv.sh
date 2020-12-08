@@ -5,7 +5,7 @@ dir_name=${PWD##*/}
 # 2. Replace '-' with '_' in a name.
 venv_stem="${dir_name//-/_}"
 
-# 3. Get virtual environment name.
+# 3. Get names for virtual environment and kernels.
 venv_name=".venv_${venv_stem}"
 py_kernel_name="${venv_stem}_py"
 
@@ -24,7 +24,7 @@ pip install -U pip
 pip install jupyter
 
 # Install Kernels =====================================================
-# Install ipython kernel
+# Install ipython kernel.
 echo "===installing iPy kernel ${py_kernel_name}==="
 python -m ipykernel install --user --name="${py_kernel_name}"
 
