@@ -8,10 +8,6 @@ venv_stem="${dir_name//-/_}"
 # 3. Get virtual environment name.
 py_kernel_name="${venv_stem}_py"
 
-# Remove Kernels ======================================================
-echo "===removing iPy kernel ${py_kernel_name}==="
-yes | pipenv run jupyter kernelspec uninstall "${py_kernel_name}"
-
 # Remove the Virtual Environment ======================================
-pipenv --venv
+echo "===removing virtual environment==="
 rm -rf $(pipenv --venv)
