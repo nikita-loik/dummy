@@ -13,5 +13,8 @@ if [ -e Pipfile ]; then
     pipenv install --dev
 else
     echo "===installing Jupyter==="
-    pipenv install jupyter --dev
+    pipenv install --dev jupyter
+    pipenv install --dev --skip-lock black pytest
+    pipenv install --skip-lock numpy pandas
+    # NB! The installation of scipy, matplotlib, and torch using 'pipenv install' fails.
 fi

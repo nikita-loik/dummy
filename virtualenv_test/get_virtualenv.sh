@@ -29,8 +29,16 @@ echo "===installing iPy kernel ${py_kernel_name}==="
 python -m ipykernel install --user --name="${py_kernel_name}"
 
 # Install Rrequirements ===============================================
-touch requirements.txt
-pip install -r requirements.txt
+if [ -e requirements.txt ]; then
+    echo "===installing specified requirements==="
+    pip install -r requirements.txt
+else
+    echo "===installing Jupyter==="
+    touch requirements.txt
+    pip install scipy numpy pandas matplotlib torch black pytest
+    pip freeze > requirements.txt
+fi
+
 echo "===virtual environment ${venv_name} created==="
 
 # Prevent Git from Tracking the Virtual Environment ===================

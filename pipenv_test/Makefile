@@ -5,5 +5,4 @@ venv_get:
 # REMOVE VIRTUAL ENVIRONMENT ==========================================
 venv_remove:
 	echo "===removing virtual environment==="
-	rm -rf $(pipenv --venv)
-	# pipenv --rm
+	pipenv --rm
