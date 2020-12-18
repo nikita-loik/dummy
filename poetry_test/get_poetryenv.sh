@@ -1,3 +1,5 @@
+#!/bin/sh
+
 # CREATE VIRTUAL ENVIRONMENT =============================
 if [ -e pyproject.toml ]; then
     echo "===installing developer environment==="

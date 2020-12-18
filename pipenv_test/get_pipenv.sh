@@ -1,3 +1,5 @@
+#!/bin/sh
+
 # Get Names for the Environment and Kernels ===========================
 # 1. Get working directory name (without full path).
 dir_name=${PWD##*/}

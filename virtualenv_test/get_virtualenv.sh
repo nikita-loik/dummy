@@ -1,3 +1,5 @@
+#!/bin/sh
+
 # Get Names for the Environment and Kernels ===========================
 # 1. Get working directory name (without full path).
 dir_name=${PWD##*/}
@@ -44,5 +46,5 @@ echo "===virtual environment ${venv_name} created==="
 # Prevent Git from Tracking the Virtual Environment ===================
 # NB! better add ignore statement to ./.git/info/exclude so that it doesn't clutter .gitignore.
 # If doesn't exist, add virtual environment path to ./.git/info/exclude.
-grep -qxF "${venv_name}/" ../.git/info/exclude || echo "${venv_name}/" >> ./.git/info/exclude
+grep -qxF "${venv_name}/" ./.git/info/exclude || echo "${venv_name}/" >> ./.git/info/exclude
 echo "===updated ./.git/info/exclude. with "${venv_name}/"==="
