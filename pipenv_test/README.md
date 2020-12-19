@@ -1,5 +1,12 @@
 # PIPENV TEST
 
+## [Installation](https://pipenv.pypa.io/en/latest/#install-pipenv-today)
+```sh
+brew install pipenv
+pipenv --version
+```
+
+## Content
 |file|function|
 |:-:|:-:|
 |[get_pipenv.sh](https://github.com/nikita-loik/dummy/blob/main/pipenv_test/get_pipenv.sh)|creates python virtual environment using poetry|
