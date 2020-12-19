@@ -8,7 +8,7 @@ virtualenv --version
 
 ## Content
 |file|function|
-|:-:|:-:|
+|:--|:--|
 |[get_virtualenv.sh](https://github.com/nikita-loik/dummy/blob/main/virtualenv_test/get_virtualenv.sh)|creates python virtual environment using virtualenv|
 |[remove_virtualenv.sh](https://github.com/nikita-loik/dummy/blob/main/virtualenv_test/remove_virtualenv.sh)|removes python virtual environment using virtualenv|
 |[Makefile](https://github.com/nikita-loik/dummy/blob/main/virtualenv_test/Makefile)|contains make commands to run the corresponding shell scripts|
