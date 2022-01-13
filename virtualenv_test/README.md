@@ -29,3 +29,7 @@ To remove virtual environment, run:
 ```sh
 make venv_remove
 ```
+## Virtual Environment Location
+```
+~/Library/Jupyter/kernels
+```
