@@ -2,9 +2,11 @@
 
 ## [Installation](https://python-poetry.org/docs/#installation)
 ```sh
-curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python
-source $HOME/.poetry/env
+brew install poetry
 poetry --version
+# to enable completion for Oh-My-Zsh
+mkdir $ZSH_CUSTOM/plugins/poetry
+poetry completions zsh > $ZSH_CUSTOM/plugins/poetry/_poetry
 ```
 
 ## Content
@@ -26,4 +28,8 @@ poetry run python test.py
 To remove virtual environment, run:
 ```sh
 make venv_remove
+```
+## Virtual Environment Location
+```
+~/Library/Caches/pypoetry/virtualenvs
 ```
